@@ -1,7 +1,12 @@
+html{
+overflow-x: hidden;
+}
+
 body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
   background-color: #DEEEEA;
 }
 
@@ -11,6 +16,10 @@ input{
 
 input[name="search"]{
   color: black !important;
+}
+
+h4{
+ font-size: 1.65em !important;
 }
 
 [name~="name"],[name~="pmail"]  {
@@ -413,10 +422,12 @@ width: 25em;
  .sign-up{
    height: 320px;
    width: 300px;
+   animation: appear linear 1s 0.4s forwards 1,
+              appear-mb linear 1s 2s forwards 1;
   }
 
   .top-social{
-     transform: scale(60%) translate(-10px, 10px);
+     transform: scale(50%) translate(-10px, 10px);
      margin: 0;
     padding: 0;
   }
@@ -450,6 +461,10 @@ width: 25em;
    animation: logo 3s 2s forwards 1;
   }
 
+ .profile-posts>img{
+    margin-left: auto;
+  }
+
 }
 
 @keyframes appear {
@@ -470,6 +485,15 @@ width: 25em;
   }
 
 }
+
+@keyframes appear-mb {
+   from{
+   transform: translate(10px,10px);
+   }
+   to{
+    transform: translate(4px,10px);
+   }
+ }
 
 @keyframes logo {
   0%{
