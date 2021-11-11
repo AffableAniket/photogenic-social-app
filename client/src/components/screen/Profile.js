@@ -10,7 +10,7 @@ const [profiles,setProfiles] = useState([]);
 const [image,setImage] = useState("");
 const [resizeImg,setResizeImg] = useState(false);
  const [render,setRender] = useState(true);
- const [newUser,setNewUser] = useState({name:"",pmail:""});
+ const [newUser,setNewUser] = useState({pname:"",pmail:""});
 const display = useRef();
 const defaultUrl = "https://cdn-icons-png.flaticon.com/512/456/456212.png";
 
@@ -33,7 +33,7 @@ const defaultUrl = "https://cdn-icons-png.flaticon.com/512/456/456212.png";
          "Content-Type" : "application/json",
          "Authorization" : "Bearer " + localStorage.getItem("jwt")
         },
-       body: JSON.stringify({email:newUser.pmail,name:newUser.name})
+       body: JSON.stringify({email:newUser.pmail,name:newUser.pname})
     }).then((res) => res.json()).then((result) => {if(result.error){
               M.toast({html: result.error, classes: 'rounded #ff1744 red accent-3'});
       }else{console.log(result);dispatch({type:"UPDATEPROFILE",payload:result});
@@ -41,8 +41,8 @@ const defaultUrl = "https://cdn-icons-png.flaticon.com/512/456/456212.png";
                  M.toast({html: "Profile Updated", classes: 'rounded #64dd17 light-green accent-4'});
             setNewUser((prevVal) => {
                return {
-                 name:"",
-                 email:""
+                 pname:"",
+                 pmail:""
                    }
               })
        }
@@ -110,8 +110,8 @@ console.log(result);} )
   },[image])
 
  const handleUserApi = () => {
-   if(newUser.name!=="" || newUser.email !== ""){
-      if(newUser.email !== ""){
+   if(newUser.pname!=="" || newUser.pmail !== ""){
+      if(newUser.pmail !== ""){
           const format = newUser.pmail.match(email);
             if(format){
                     updateUserApi();
@@ -198,7 +198,7 @@ console.log(result);} )
                   <i onClick={() => handleEdit()} className="tiny material-icons">create</i>
                   {(render!==true)?<i onClick={handleUserApi} className="material-icons">control_point</i>:null}
                   <div className="input-field col s6">
-                  <input placeholder={state&&state.name} name="name" value={newUser.name}
+                  <input placeholder={state&&state.name} name="pname" value={newUser.pname}
                   onChange={handleUserUpdate} />
                   </div>
                   </div>

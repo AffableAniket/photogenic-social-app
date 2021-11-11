@@ -22,7 +22,7 @@ h4{
  font-size: 1.65em !important;
 }
 
-[name~="name"],[name~="pmail"]  {
+[name~="pname"],[name~="pmail"]  {
   color : black !important;
 }
 
