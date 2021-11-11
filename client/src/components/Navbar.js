@@ -10,7 +10,7 @@ function Navbar(){
     const [windowResize,setWindowResize] = useState(window.innerWidth);
     const [searchResults,setSearchResults] = useState([]);
     const [closeSearch,setCloseSearch] = useState(false);
-
+    const [count,setCount] = useState(0);
     const showSearch = useRef(null);
    M.AutoInit();
   const [search,setSearch] = useState("");
@@ -89,7 +89,7 @@ function Navbar(){
     <nav>
     <div className="nav-wrapper nav-container">
       <a className="brand-logo">  <i className="large material-icons logo">camera</i> <span className="logo-name">Photogenic</span></a>
-  <a data-target="mobile-demo" class="sidenav-trigger"><i id="menu-nav" class="material-icons">menu</i></a>
+  <a data-target="mobile-demo" class="sidenav-trigger"><i onClick={() => {(count==0)&&setCount(count+1)}} id="menu-nav" class="material-icons">menu</i></a>
  <ul className="right hide-on-med-and-down">
 {(handleNav()===null)?renderList():null}
    </ul>
